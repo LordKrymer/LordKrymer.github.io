@@ -94,6 +94,7 @@ function perderVida(){
         boton[0].style.backgroundColor="red";
     }
     else{
+        revelarPalabra();
         let tag = document.createElement("p");
         let texto = document.createTextNode("GAME OVER");
         tag.appendChild(texto);
@@ -105,7 +106,7 @@ function perderVida(){
 
 
 function verificarVictoria(){
-    if (palabra.indexOf("_") == -1){
+    if (palabra.indexOf("_") == -1 && vidas>0){
         let tag = document.createElement("p");
         let texto = document.createTextNode("Felicidades!!!");
         tag.appendChild(texto);
@@ -140,6 +141,16 @@ function reiniciar (){
     Gvidas=[corazon,corazon,corazon,corazon,corazon];
     vidas=5;
     crearVidas();
+}
+
+function revelarPalabra(){
+    palabra = [];
+    for (let i=0;i<palabraActual.length;i++){
+        palabra.push(palabraActual[i].toUpperCase());
+    }
+    document.getElementById("slots").innerHTML = "";
+    mostrarPalabra();
+
 }
 
 
