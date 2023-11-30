@@ -16,16 +16,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     mostrarPalabra();
     crearVidas();
 });
+
 function palabraVacia(){
-for (let i=0;i<palabraActual.length;i++){
-    palabra.push("_");
-}
+    for (let i=0;i<palabraActual.length;i++){
+        palabra.push("_");
+    }
 }
 
 function palabraRandom(){
-    antiguo=palabraActual;
-    while (palabraActual==antiguo){
-    palabraActual=diccionario[Math.floor(Math.random() * (diccionario.length))];
+    antiguo = palabraActual;
+    while (palabraActual === antiguo){
+        palabraActual=diccionario[Math.floor(Math.random() * (diccionario.length))];
     }
 }
 
@@ -113,7 +114,7 @@ function verificarVictoria(){
         document.getElementById('letras').innerHTML=""
         document.getElementById("letras").appendChild(tag);
         document.getElementById('letras').appendChild(botonRestart());
-        }
+    }
 }
 
 
@@ -150,7 +151,6 @@ function revelarPalabra(){
     }
     document.getElementById("slots").innerHTML = "";
     mostrarPalabra();
-
 }
 
 
