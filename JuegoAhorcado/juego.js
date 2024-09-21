@@ -62,9 +62,9 @@ const JuegoAhorcado = {
         {
         this.letrasUsadas.push(event.target.dataset.id);
         let letra = event.target.dataset.id;
-        if (this.palabraActual.indexOf(letra) != -1) {
+        if (this.palabraActual.indexOf(letra) !== -1) {
             for (let i = 0; i < this.palabraActual.length; i++) {
-                if (this.palabraActual[i] == letra) {
+                if (this.palabraActual[i] === letra) {
                     this.palabra[i] = letra;
                     let espacio = document.querySelector("#slots > span:nth-child(" + (i + 1) + ")");
                     espacio.innerHTML = letra.toUpperCase();
@@ -94,7 +94,7 @@ const JuegoAhorcado = {
         this.Gvidas[this.Gvidas.indexOf(this.corazon)] = this.noCorazon;
         this.crearVidas();
         this.vidas--;
-        if (this.vidas != 0) {
+        if (this.vidas !== 0) {
             let boton = document.querySelectorAll('[data-id =' + letra + ']');
             boton[0].removeEventListener("click", this.verificar.bind(this));
             boton[0].style.backgroundColor = "red";
@@ -110,7 +110,7 @@ const JuegoAhorcado = {
     },
 
     verificarVictoria: function() {
-        if (this.palabra.indexOf("_") == -1 && this.vidas > 0) {
+        if (this.palabra.indexOf("_") === -1 && this.vidas > 0) {
             let tag = document.createElement("p");
             let texto = document.createTextNode("Felicidades!!!");
             tag.appendChild(texto);
